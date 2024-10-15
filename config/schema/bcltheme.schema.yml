@@ -1,0 +1,8 @@
+# Schema for the configuration files of the BCL responsive theme theme.
+bcltheme.settings:
+  type: theme_settings
+  label: 'BCL responsive theme settings'
+  mapping:
+    example:
+      type: string
+      label: Example

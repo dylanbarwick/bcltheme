@@ -1,0 +1,30 @@
+.pager {
+  text-align: center;
+  @apply mt-4;
+  
+  ul.pager__items {
+    li.pager__item {
+      display: inline-block;
+      margin-right: 0.5rem;
+
+      a.pager__link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+
+      &.is-active {
+        a.pager__link {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+}

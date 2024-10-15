@@ -1,0 +1,10 @@
+.field-item {
+  &.text-with-summary {
+    p + h2,
+    p + h3,
+    p + h4 {
+      @apply mt-4;
+    }
+    @apply mb-8;
+  }
+}

@@ -1,0 +1,16 @@
+.messages.messages--status {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #686868;
+  color: #fff;
+  &.error {
+    background-color: #cc0000;
+  }
+  &[role=status] {
+    background-color: #eada73;
+    color: #342828;
+  }
+}

@@ -1,0 +1,210 @@
+ul {
+  &.tabs {
+    @apply block md:flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.3rem 0;
+    border-bottom: 1px solid #ccc;
+    li {
+      @apply block md:flex-none;
+      text-align: center;
+      padding: 5px 15px 3px 15px;
+      margin-right: 1rem;
+      cursor: pointer;
+      background-color: bisque;
+      list-style: none;
+      border-radius: 0.5rem 0.5rem 0 0;
+      border-color: #999999;
+      border-style: solid;
+      border-width: 1px 1px 0 1px;
+      &.is-active {
+        background-color: #ccc;
+      }
+      &:hover {
+        background-color: #999;
+      }
+    }
+  }
+}
+
+#block-bcltheme-account-menu {
+  ul.actual-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    li {
+      flex: 0 1 auto;
+      text-align: right;
+      padding: 5px 15px 3px 15px;
+      margin-right: 1rem;
+      cursor: pointer;
+      background-color: transparent;
+      border-radius: 0.5rem 0.5rem 0 0;
+      &.is-active {
+        background-color: #ccc;
+      }
+      &:hover {
+        background-color: #999;
+      }
+    }
+  }
+}
+
+#block-bcltheme-primary-local-tasks {
+  ul.actual-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    position: relative;
+    border-bottom: #4b4b4b solid 1px;
+    li {
+      flex: 0 1 auto;
+      text-align: left;
+      padding: 5px 15px 3px 15px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      background-color: theme('colors.gray-light');
+      border-radius: 0.5rem 0.5rem 0 0;
+      border-style: solid;
+      border-color: #4b4b4b;
+      border-width: 1px 1px 0 1px;
+      &.is-active {
+        background-color: theme('colors.gray-light');
+        a {
+          color: theme('colors.white');
+        }
+      }
+      &:hover {
+        background-color: theme('colors.gray');
+        a {
+          color: theme('colors.white');
+        }
+      }
+      a {
+        text-decoration: none;
+        color: theme('colors.black');
+      }
+    }
+  }
+}
+
+nav#block-bcltheme-main-menu,
+nav#block-bcltheme-legal {
+  position: relative;
+  ul.actual-menu {
+    @apply absolute right-0 top-14 hidden md:flex md:static;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 501;
+    li {
+      flex: auto;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+      background-color: theme('colors.green');
+      color: theme('colors.white');
+      &.is-active {
+        background-color: theme('colors.gray-light');
+        color: black;
+      }
+      &:hover {
+        background-color: theme('colors.gray');
+        color: theme('colors.black');
+        a {
+          color: theme('colors.black');
+        }
+        ul.sub-menu {
+          display: block;
+        }
+      }
+      a, span {
+        display: inline-block;
+        width: 100%;
+        padding: 5px 15px 3px 15px;
+        color: theme('colors.white');
+      }
+      a {
+        text-decoration: none;
+      }
+      ul.sub-menu {
+        display: none;
+        position: absolute;
+        background-color: theme('colors.green');
+        color: theme('colors.white');
+        border-radius: 0.5rem;
+        li {
+          padding: 0;
+          cursor: pointer;
+          background-color: theme('colors.green');
+          color: theme('colors.white');
+          &.is-active {
+            background-color: theme('colors.gray-light');
+            color: theme('colors.black');
+          }
+          &:hover {
+            background-color: theme('colors.gray');
+            color: theme('colors.black');
+            a {
+              color: theme('colors.black');
+            }
+          }
+
+          a {
+            padding: 5px 45px 3px 15px;
+            display: inline-block;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+nav#block-bcltheme-legal {
+  ul.actual-menu {
+    margin-bottom: 2rem;
+    li {
+      flex: none;
+      background-color: transparent;
+      border-right: white 2px solid;
+      margin-right: 15px;
+      &.is-active {
+        background-color: transparent;
+        color: white;
+      }
+      &:hover {
+        background-color: transparent;
+        color: white;
+      }
+      a, span {
+        padding: 0 15px 0 0;
+      }
+    }
+    li:last-child {
+      border-right: none;
+    }
+  }
+}
+
+/* Hamburger styles */
+button.hamburger {
+  .hamburger-box {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+
+    .bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 4px auto;
+      transition: all 0.3s;
+      background-color: #333;
+    }
+  }
+}

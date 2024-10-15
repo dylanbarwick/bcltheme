@@ -1,0 +1,11 @@
+global-styling:
+  css:
+    base:
+      dist/bcltheme.css: {}
+  js:
+    dist/bcltheme.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - js_cookie/js-cookie
+    - core/drupalSettings

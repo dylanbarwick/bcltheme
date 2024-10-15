@@ -1,0 +1,7 @@
+.field-group-html-element {
+  @apply p-3 border border-gray-light mb-3;
+
+  h3 {
+    @apply text-xl font-bold border-b border-gray-light pb-2 mb-1;
+  }
+}

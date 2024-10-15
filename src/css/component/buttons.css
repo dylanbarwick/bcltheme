@@ -1,0 +1,21 @@
+.button-container,
+.form-actions {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+
+  .button,
+  li.button a {
+    margin: 0 1rem 1rem 0;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    background-color: theme('colors.blue-light');
+    color: theme('colors.white');
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #002d3e;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+table {
+  tr {
+    @apply border-b border-gray-light;
+  }
+  thead tr {
+    @apply border-black;
+  }
+  th, td {
+    vertical-align: top;
+    &.views-field {
+      text-align: left;
+      padding-right: 2rem;
+    }
+  }
+}

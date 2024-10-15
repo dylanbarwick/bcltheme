@@ -1,0 +1,28 @@
+@import url('portal.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input {
+    @apply border border-gray-light
+  }
+}
+
+@layer components {
+  .block,
+  .node {
+    @apply mb-4
+  }
+
+  .node__content p,
+  .node__content ul,
+  .node__content ol {
+    @apply mb-4 leading-normal
+  }
+
+  [id$="-local-tasks"] ul {
+    @apply list-disc list-inside
+  }
+}

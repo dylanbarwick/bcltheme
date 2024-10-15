@@ -1,0 +1,174 @@
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'crimson', serif;
+    font-weight: 700;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    @apply text-4xl;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+    @apply text-3xl;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+    @apply text-2xl;
+  }
+
+  html {
+    font-family: 'roboto', sans-serif;
+    line-height: 1.5;
+    color: #000000;
+    font-weight: 400;
+  }
+
+  a {
+    color: theme('colors.blue');
+    text-decoration: underline;
+  }
+
+  .border-gray-light {
+    border-color: theme('colors.gray-light');
+  }
+
+  .border-black {
+    border-color: theme('colors.black');
+  }
+}
+
+/* The container class - mobile first. */
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 90%;
+}
+
+/* Color band - full width band of solid color. */
+.color-band {
+  background-color: #4b4b4b;
+  color: theme('colors.white');
+  padding: 1rem 0;
+  width: 100%;
+
+  &.color-band--grey {
+    background-color: theme('colors.gray-light');
+    color: theme('colors.black');
+    a {
+      color: theme('colors.black');
+    }
+  }
+
+  &.color-band--red {
+    background-color: theme('colors.red');
+    color: theme('colors.white');
+    a {
+      color: theme('colors.white');
+    }
+  }
+
+  &.color-band--green {
+    background-color: theme('colors.green');
+    color: theme('colors.yellow-light');
+    a {
+      color: theme('colors.yellow-light');
+    }
+  }
+
+  &.color-band--blue {
+    background-color: theme('colors.blue');
+    color: theme('colors.gray-light');
+    a {
+      color: theme('colors.gray-light');
+    }
+  }
+}
+
+.region {
+  &.region-primary-menu {
+    position: relative;
+    button.hamburger {
+      @apply block md:hidden absolute right-0;
+    }
+  }
+  &.region-header {
+    button.hamburger,
+    nav#block-refresher-tw-mainnavigation {
+      @apply hidden md:block;
+    }
+  }
+}
+
+ul, ol {
+  margin: 0.5rem 1rem 1rem;
+  padding: 0 1rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.node-contact {
+  .contact-element {
+    display: block;
+    margin-bottom: 0.5rem
+  }
+}
+
+.standard-bottom-spacing {
+  @apply pb-3 md:pb-5;
+}
+
+.field-label {
+  min-width: 20%;
+  flex: 0.5;
+}
+
+.field-value {
+  min-width: 60%;
+}
+
+.content-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.description-field p {
+  margin-bottom: 0.5rem;
+}
+
+.layout-content {
+  article.node {
+    margin-bottom: 2rem;
+  }
+  .body,
+  .field-description {
+    border-bottom: #cccccc solid 2px;
+    margin-bottom: 1rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+#block-bcltheme-content {
+  p {
+    margin-bottom: 1rem;
+  }
+}

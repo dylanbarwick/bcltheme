@@ -1,0 +1,19 @@
+name: BCL responsive theme
+description: A starter kit theme for Drupal 8/9/10 and Tailwind CSS.
+core_version_requirement: ^8 || ^9 || ^10
+type: theme
+base theme: stable9
+libraries:
+  - bcltheme/global-styling
+starterkit: true
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  footer: Footer
