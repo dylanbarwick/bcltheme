@@ -1,0 +1,91 @@
+<?php
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function bcltheme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  // Extract the node object from $variables.
+  $node = $variables['elements']['#node'];
+  $node_type = $node->getType();
+  // dump($node_type);
+  $field_template_key = '';
+  $field_pop_view_mode = '';
+  // If we have a node of type `modalpop`...
+  if ($node_type == 'modalpop') {
+    // If we have a template key value...
+    if (!empty($node->get('field_template_key')->value)) {
+      $field_template_key = $node->get('field_template_key')->value;
+      $suggestions[] = 'node__modalpop__' . $field_template_key;
+    }
+    // If we have a pop-up view mode value...
+    if (!empty($node->get('field_pop_view_mode')->value)) {
+      $field_pop_view_mode = $node->get('field_pop_view_mode')->value;
+      $suggestions[] = 'node__modalpop__' . $field_pop_view_mode;
+    }
+    // If we have both...
+    if (!empty($field_template_key) && !empty($field_pop_view_mode)) {
+      $suggestions[] = 'node__modalpop__' . $field_pop_view_mode . '__' . $field_template_key;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function bcltheme_preprocess_node(&$variables) {
+  // Log this function call.
+  \Drupal::logger('bcltheme - preprocess node')->notice('bcltheme_preprocess_node called.');
+  // Extract the node object from $variables.
+  $node = $variables['elements']['#node'];
+  $variables['node_type'] = $node->getType();
+  // If we have a node of type `modalpop`...
+  if ($node->getType() == 'modalpop') {
+    // If we have a template key value...
+    if (!empty($node->get('field_feed')->value)) {
+      $field_feed = $node->get('field_feed')->value;
+      // Check the start of the feed value for 'http'...
+      if (strpos($field_feed, 'http') === 0) {
+        // If it starts with 'http', set the feed value to the field value...
+        $feed_url = $field_feed;
+      }
+      else {
+        // If it doesn't start with 'http', set the feed value to the site domain...
+        $site_domain = \Drupal::request()->getSchemeAndHttpHost();
+        $feed_url = $site_domain . $field_feed;
+      }
+      // Use curl to fetch feed content.
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $feed_url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $gotContent = curl_exec($ch);
+
+      // If we have content...
+      if ($gotContent) {
+        // Get the content type...
+        $headers = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+        // If the content type is JSON...
+        if (strpos($headers, 'application/json') !== FALSE) {
+          // Decode the JSON content...
+          $feed_content = json_decode($gotContent, TRUE);
+        }
+        // If the content type is XML...
+        elseif (strpos($headers, 'application/xml') !== FALSE) {
+          // Load the XML content...
+          $feed_content = simplexml_load_string($gotContent);
+        }
+        // If the content type is neither JSON nor XML...
+        else {
+          // Set the feed to an empty array...
+          $feed_content = [];
+        }
+        // Feed the whole returned content to the template.
+        foreach ($feed_content['parts'][0] as $key => $value) {
+          $variables['feed_content'][$key] = Markup::create($value);
+        }
+
+      }
+    }
+  }
+}

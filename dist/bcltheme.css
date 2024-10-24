@@ -390,6 +390,32 @@ button.hamburger {
   }
 }
 
+.node--view-mode--popup-standard {
+  .modalpop-content-container {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+  .modalpop-buttons-container {
+    border: 0px #999999 solid;
+    padding: 5px;
+    margin-left: 0;
+    text-align: center;
+    .modalpop-button {
+      display: inline-block;
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
 /* @import "css/component/rating.css"; */
 
 /* @import "css/component/sidebar.css"; */
@@ -1377,6 +1403,13 @@ input {
   margin-bottom: 1rem;
 }
 
+.node__content p,
+  .node__content ul,
+  .node__content ol {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
 [id$="-local-tasks"] ul {
   list-style-position: inside;
   list-style-type: disc;
@@ -1422,6 +1455,10 @@ input {
 
 .items-center {
   align-items: center;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .p-4 {

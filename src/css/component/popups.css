@@ -1,0 +1,28 @@
+.node--view-mode--popup-standard {
+  .modalpop-content-container {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+  .modalpop-buttons-container {
+    border: 0px #999999 solid;
+    padding: 5px;
+    margin-left: 0;
+    text-align: center;
+
+    .modalpop-button {
+      display: inline-block;
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
