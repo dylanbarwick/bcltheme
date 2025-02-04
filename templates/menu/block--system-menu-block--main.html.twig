@@ -34,7 +34,7 @@
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 {# Hamburger menu #}
-<button class="hamburger hamburger--squeeze md:hidden" type="button" aria-controls="{{ heading_id }}" aria-expanded="false">
+<button class="hamburger hamburger--squeeze md:hidden z-10" type="button" aria-controls="{{ heading_id }}" aria-expanded="false">
   <span class="hamburger-box">
     <span class="hamburger-inner">
       <span class="bar bar1"></span>
@@ -43,7 +43,7 @@
     </span>
   </span>
 </button>
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby').addClass('mb-4') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}

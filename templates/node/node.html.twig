@@ -70,7 +70,18 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('node') }}>
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    not node.isPublished() ? 'node--unpublished',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    'clearfix',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -81,7 +92,7 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer>
+    <footer class="mb-2">
       {{ author_picture }}
       <div{{ author_attributes }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}

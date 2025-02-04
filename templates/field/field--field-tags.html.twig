@@ -47,12 +47,30 @@
     'field--name-' ~ field_name|clean_class,
     'field--type-' ~ field_type|clean_class,
     'field--label-' ~ label_display|clean_class,
+    'button',
+    'buttonlink-tag',
   ]
 %}
 
+{%
+  set field_collection_wrapper_classes = [
+    'field-collection',
+    'tags-collection',
+    'border-y-4',
+    'border-blue-light/10',
+    'my-3',
+  ]
+%}
+
+{%
+  set fieldCollectionAttributes = create_attribute()
+    .addClass(field_collection_wrapper_classes)
+%}
+
+<div{{ fieldCollectionAttributes }}>
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes }}>
+    <div{{ attributes.addClass('button-container') }}>
       {% for item in items %}
         <div{{ item.attributes.addClass(field_wrapper_classes) }}>{{ item.content }}</div>
       {% endfor %}
@@ -63,7 +81,7 @@
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes }}>
+  <div{{ attributes.addClass('button-container') }}>
     <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
     {% if multiple %}
       <div>
@@ -76,3 +94,4 @@
     {% endif %}
   </div>
 {% endif %}
+</div>

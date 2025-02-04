@@ -1,0 +1,3 @@
+.site-logo {
+  @apply: max-w-18 md:max-w-32;
+}

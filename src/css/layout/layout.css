@@ -47,6 +47,19 @@
   .border-black {
     border-color: theme('colors.black');
   }
+
+  ul, ol {
+    margin: 0.5rem 1rem 1rem;
+    padding: 0 1rem;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
 }
 
 /* The container class - mobile first. */
@@ -109,19 +122,6 @@
       @apply hidden md:block;
     }
   }
-}
-
-ul, ol {
-  margin: 0.5rem 1rem 1rem;
-  padding: 0 1rem;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
 }
 
 .node-contact {

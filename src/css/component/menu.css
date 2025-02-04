@@ -37,8 +37,9 @@ ul {
     li {
       flex: 0 1 auto;
       text-align: right;
-      padding: 5px 15px 3px 15px;
+      padding: 0;
       margin-right: 1rem;
+      margin-bottom: 0.3rem;
       cursor: pointer;
       background-color: transparent;
       border-radius: 0.5rem 0.5rem 0 0;
@@ -47,6 +48,9 @@ ul {
       }
       &:hover {
         background-color: #999;
+      }
+      &:first-child {
+        padding-left: 0;;
       }
     }
   }

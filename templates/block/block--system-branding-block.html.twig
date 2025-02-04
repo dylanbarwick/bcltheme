@@ -13,10 +13,24 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
+{%
+  set logo_classes = [
+    'mr-2',
+    'mb-4',
+    'site-logo',
+    'max-w-16',
+    'md:max-w-32',
+  ]
+%}
+{%
+  set logoAttributes = create_attribute({
+    'class': logo_classes,
+  })
+%}
 {% block content %}
   <div class="flex items-center">
     {% if site_logo %}
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="mr-2 site-logo">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" {{ logoAttributes }}>
         <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
       </a>
     {% endif %}

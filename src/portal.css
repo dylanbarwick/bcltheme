@@ -1,12 +1,13 @@
 /* Components */
 /* @import "css/component/block.css"; */
 /* @import "css/component/branding.css"; */
-/* @import "css/component/breadcrumb.css"; */
+@import "css/component/breadcrumb.css";
 @import "css/component/buttons.css";
 @import "css/component/field.css";
 @import "css/component/fieldset.css";
 @import "css/component/form.css";
 /* @import "css/component/header.css"; */
+/* @import "css/component/logo.css"; */
 @import "css/component/menu.css";
 @import "css/component/messages.css";
 /* @import "css/component/node.css"; */
